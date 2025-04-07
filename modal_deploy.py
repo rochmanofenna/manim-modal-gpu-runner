@@ -66,7 +66,7 @@ def render_manim_gpu(file_content):
     render_start_time = time.time()
     print(f"\nCold start duration: {render_start_time - cold_start_time:.2f} seconds")
 
-    cmd = "cd /root && PYTHONPATH=/root manimgl binary_search.py SimpleAnimation -o"
+    cmd = "cd /root && manim binary_search.py SimpleAnimation -pql"
     print(f"Running command: {cmd}")
     process = subprocess.run(cmd, shell=True, capture_output=True, text=True)
 
