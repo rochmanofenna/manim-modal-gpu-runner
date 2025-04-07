@@ -37,8 +37,8 @@ class SimpleAnimation(Scene):
         axes = Axes(
             x_range=(-3, 3, 1),
             y_range=(-2, 2, 1),
-            height=4,
-            width=8
+            x_length=8,
+            y_length=4
         )
         axes.next_to(shapes, DOWN, buff=1)
         
