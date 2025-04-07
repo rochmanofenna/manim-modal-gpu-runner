@@ -20,9 +20,9 @@ image = (
         "curl"
     )
     .run_commands(
-        "apt-get update && apt-get install -y python3-pip"
+        "apt-get update && apt-get install -y python3-pip",
+        "pip install --no-cache-dir manim==0.17.3"
     )
-    .run_commands("pip install manim==0.17.3")
 )
 
 volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
