@@ -1,5 +1,4 @@
-from manim import Create
-
+from manim import Scene, Text, Circle, Square, Triangle, VGroup, Axes, Dot, Create, FadeIn, FadeOut, Write, linear
 class SimpleAnimation(Scene):
     def construct(self):
         # Title
