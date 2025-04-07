@@ -16,7 +16,7 @@ image = (
         "libcairo2-dev", "libpango1.0-dev",
         "sox", "libsox-fmt-all",
         "texlive", "texlive-latex-extra", "texlive-fonts-extra",
-        "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended"
+        "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended",
     )
     .pip_install("manim==0.14.0")
 )
