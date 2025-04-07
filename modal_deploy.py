@@ -7,7 +7,7 @@ import subprocess
 app = modal.App("binary-search-animation")
 
 image = (
-    modal.Image.debian_slim(python_version="3.11")
+    modal.Image.from_registry("python:3.11-slim-bullseye", add_python="3.11")
     .apt_install(
         "ffmpeg", "build-essential", "pkg-config", "python3-dev",
         "libgl1-mesa-dev", "libegl1-mesa-dev", "libgles2-mesa-dev",
@@ -16,7 +16,12 @@ image = (
         "libcairo2-dev", "libpango1.0-dev",
         "sox", "libsox-fmt-all",
         "texlive", "texlive-latex-extra", "texlive-fonts-extra",
-        "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended"
+        "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended",
+        "curl"
+    )
+    .run_commands(
+        "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py",
+        "python3 get-pip.py",
     )
     .pip_install(
         "manim==0.17.3",
