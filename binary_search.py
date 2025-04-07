@@ -74,8 +74,3 @@ class SimpleAnimation(Scene):
         self.wait(1)
         self.play(FadeOut(end_text), run_time=1)
 
-# Main entry point
-if __name__ == "__main__":
-    import sys
-    from manimlib.__main__ import main
-    sys.exit(main())
