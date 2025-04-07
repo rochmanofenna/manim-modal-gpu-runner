@@ -23,6 +23,9 @@ image = (
         "pycairo", "pyglet", "pydub", "moderngl", "moderngl-window",
         "screeninfo", "mapbox-earcut", "validators", "tqdm"
     )
+    .run_commands(
+        "which manim && ln -s $(which manim) /usr/bin/manim"
+    )
 )
 
 volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
@@ -30,7 +33,7 @@ volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
 @app.function(
     image=image,
     gpu="A100",
-    volumes={"/root/output": volume},
+    volumes={"/root/output": volume},ﬁdude
     timeout=1800,
 )
 def render_manim_gpu(file_content):
