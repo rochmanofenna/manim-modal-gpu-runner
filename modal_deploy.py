@@ -4,7 +4,7 @@ import time
 import shutil
 import subprocess
 
-app = modal.App("binary-search-animation")
+app = modal.App("binary-search-animation-v2")
 
 image = (
     modal.Image.from_registry("python:3.11-slim-bullseye", add_python="3.11")
