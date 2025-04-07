@@ -75,7 +75,7 @@ def render_manim_gpu(file_content):
     render_start_time = time.time()
     print(f"\nCold start duration: {render_start_time - cold_start_time:.2f} seconds")
 
-    cmd = "cd /root && manim binary_search.py LongAnimation -pql"
+    cmd = "cd /root && manim binary_search.py LongAnimation -pqh"
     print(f"Running command: {cmd}")
     process = subprocess.run(cmd, shell=True, capture_output=True, text=True)
 
