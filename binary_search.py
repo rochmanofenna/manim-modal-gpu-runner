@@ -1,4 +1,8 @@
 from manim import Scene, Text, Circle, Square, Triangle, VGroup, Axes, Dot, Create, FadeIn, FadeOut, Write, linear
+from manim.utils.unit import UP, DOWN
+from manim.utils.color import BLUE, GREEN, RED, YELLOW, WHITE
+from math import pi as PI
+import numpy as np
 class SimpleAnimation(Scene):
     def construct(self):
         # Title
