@@ -20,8 +20,7 @@ image = (
         "curl"
     )
     .run_commands(
-        "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py",
-        "python3 get-pip.py",
+        "apt-get update && apt-get install -y python3-pip"
     )
     .pip_install(
         "manim==0.17.3",
