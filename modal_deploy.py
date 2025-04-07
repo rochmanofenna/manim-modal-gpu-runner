@@ -7,18 +7,22 @@ import subprocess
 app = modal.App("binary-search-animation-v2")
 
 image = (
-    modal.Image.from_registry("python:3.11-slim-bullseye", add_python="3.11")
+    modal.Image.from_registry("python:3.11-slim-bullseye")
     .apt_install(
         "ffmpeg", "build-essential", "pkg-config", "python3-dev",
         "libgl1-mesa-dev", "libegl1-mesa-dev", "libgles2-mesa-dev",
         "libglvnd-dev", "libglfw3-dev", "freeglut3-dev",
-        "xvfb", "x11-utils",
-        "libcairo2-dev", "libpango1.0-dev",
+        "xvfb", "x11-utils", "libcairo2-dev", "libpango1.0-dev",
         "sox", "libsox-fmt-all",
         "texlive", "texlive-latex-extra", "texlive-fonts-extra",
         "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended",
     )
-    .pip_install("manim==0.14.0")
+    .run_commands(
+        "apt-get update && apt-get install -y git",
+        "pip install --upgrade pip",
+        "pip install manim==0.14.0"
+    )
+    .tag("manim-v014-clean")
 )
 
 volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
