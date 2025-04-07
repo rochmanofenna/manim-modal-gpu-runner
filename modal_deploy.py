@@ -43,6 +43,13 @@ def render_manim_gpu(file_content):
     device_type = "GPU" if gpu_available else "CPU"
     gpu_info = torch.cuda.get_device_name(0) if gpu_available else "N/A"
 
+    with open("/root/output/gpu/gpu_info.txt", "w") as f:
+        f.write(f"GPU Available: {gpu_available}\n")
+        f.write(f"GPU Info: {gpu_info}\n")
+        subprocess.run("nvidia-smi", shell=True, stdout=f, stderr=subprocess.STDOUT)
+    print(f"GPU available: {gpu_available}")
+    print(f"GPU info: {gpu_info}")
+
     with open("/root/binary_search.py", "w", encoding="utf-8") as f:
         f.write(file_content)
 
@@ -148,6 +155,15 @@ def main():
     result = render_manim_gpu.remote(file_content)
     print(f"GPU Execution Time: {result['elapsed_time']:.2f} seconds")
     print(f"GPU: {result['gpu_info']}")
+
+    gpu_log_path = os.path.join(local_output_dir, "gpu_info.txt")
+    gpu_log_content = download_file.remote("/root/output/gpu/gpu_info.txt")
+    if gpu_log_content:
+        with open(gpu_log_path, "wb") as f:
+            f.write(gpu_log_content)
+        print(f"GPU log downloaded to {gpu_log_path}")
+    else:
+        print("GPU log not found or failed to download.")
 
     for file in result["output_files"]:
         print(f"- {file['path']} ({file['size'] / 1024 / 1024:.2f} MB)")
