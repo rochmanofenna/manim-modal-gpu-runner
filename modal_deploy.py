@@ -7,7 +7,7 @@ import subprocess
 app = modal.App("binary-search-animation")
 
 image = (
-    modal.Image.debian_slim()
+    modal.Image.debian_slim(python_version="3.11")
     .apt_install(
         "ffmpeg", "build-essential", "pkg-config", "python3-dev",
         "libgl1-mesa-dev", "libegl1-mesa-dev", "libgles2-mesa-dev",
