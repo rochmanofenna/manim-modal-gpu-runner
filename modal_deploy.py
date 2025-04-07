@@ -3,6 +3,7 @@ import os
 import time
 import shutil
 import subprocess
+import torch
 
 app = modal.App("binary-search-animation-v2")
 
@@ -20,7 +21,7 @@ image = (
     .run_commands(
         "apt-get update && apt-get install -y git",
         "pip install --upgrade pip",
-        "pip install manim==0.14.0"
+        "pip install torch manim==0.14.0"
     )
 )
 
@@ -33,7 +34,6 @@ volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
     timeout=1800,
 )
 def render_manim_gpu(file_content):
-    import torch
     cold_start_time = time.time()
 
     output_path = "/root/output/gpu"
