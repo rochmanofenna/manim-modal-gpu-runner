@@ -22,7 +22,6 @@ image = (
         "pip install --upgrade pip",
         "pip install manim==0.14.0"
     )
-    .tag("manim-v014-clean")
 )
 
 volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
