@@ -65,8 +65,8 @@ def render_manim_gpu(file_content):
 
     os.environ["LD_LIBRARY_PATH"] = "/usr/lib/x86_64-linux-gnu:/usr/lib/i386-linux-gnu"
 
-    subprocess.run("which manim", shell=True)
-    subprocess.run("manim --version", shell=True)
+    subprocess.run("pip show manim", shell=True)
+    subprocess.run("python -c 'import manim; print(manim.__file__)'", shell=True)
 
     render_start_time = time.time()
     print(f"\nCold start duration: {render_start_time - cold_start_time:.2f} seconds")
