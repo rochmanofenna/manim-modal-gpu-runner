@@ -42,7 +42,7 @@ class SimpleAnimation(Scene):
         )
         axes.next_to(shapes, DOWN, buff=1)
         
-        sin_graph = axes.get_graph(lambda x: np.sin(x), color=YELLOW)
+        sin_graph = axes.plot(lambda x: np.sin(x), color=YELLOW)
         
         # Show the axes and the sine function
         self.play(Create(axes), run_time=1)
