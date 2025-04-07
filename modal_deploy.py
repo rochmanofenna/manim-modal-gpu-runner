@@ -22,13 +22,7 @@ image = (
     .run_commands(
         "apt-get update && apt-get install -y python3-pip"
     )
-    .pip_install(
-        "manim==0.17.3",
-        "numpy", "requests", "moviepy", "torch",
-        "pycairo", "pyglet", "pydub", "moderngl", "moderngl-window",
-        "screeninfo", "mapbox-earcut", "validators", "tqdm",
-        "typing_extensions>=4.5.0"
-    )
+    .run_commands("pip install manim==0.17.3")
 )
 
 volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
