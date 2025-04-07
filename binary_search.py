@@ -1,4 +1,4 @@
-from manim import *
+from manim import Create
 
 class SimpleAnimation(Scene):
     def construct(self):
@@ -18,7 +18,7 @@ class SimpleAnimation(Scene):
         
         # Display shapes one by one
         for shape in shapes:
-            self.play(ShowCreation(shape), run_time=1)
+            self.play(Create(shape), run_time=1)
         self.wait(0.5)
         
         # Move shapes around
@@ -42,8 +42,8 @@ class SimpleAnimation(Scene):
         sin_graph = axes.get_graph(lambda x: np.sin(x), color=YELLOW)
         
         # Show the axes and the sine function
-        self.play(ShowCreation(axes), run_time=1)
-        self.play(ShowCreation(sin_graph), run_time=1.5)
+        self.play(Create(axes), run_time=1)
+        self.play(Create(sin_graph), run_time=1.5)
         
         # Create a moving dot on the sine curve
         dot = Dot(color=WHITE)
@@ -73,4 +73,3 @@ class SimpleAnimation(Scene):
         self.play(Write(end_text))
         self.wait(1)
         self.play(FadeOut(end_text), run_time=1)
-
