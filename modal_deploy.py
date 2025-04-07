@@ -19,7 +19,7 @@ image = (
         "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended"
     )
     .pip_install(
-        "manimgl==1.7.2", "numpy", "requests", "moviepy", "torch",
+        "manimgl==1.6.1", "numpy", "requests", "moviepy", "torch",
         "pycairo", "pyglet", "pydub", "moderngl", "moderngl-window",
         "screeninfo", "mapbox-earcut", "validators", "tqdm"
     )
