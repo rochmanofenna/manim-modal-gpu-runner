@@ -19,12 +19,9 @@ image = (
         "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended"
     )
     .pip_install(
-        "manim==0.18.0", "numpy", "requests", "moviepy", "torch",
+        "manimce", "numpy", "requests", "moviepy", "torch",
         "pycairo", "pyglet", "pydub", "moderngl", "moderngl-window",
         "screeninfo", "mapbox-earcut", "validators", "tqdm"
-    )
-    .run_commands(
-        "which manim && ln -s $(which manim) /usr/bin/manim"
     )
 )
 
