@@ -3,7 +3,6 @@ import os
 import time
 import shutil
 import subprocess
-import torch
 
 app = modal.App("binary-search-animation-v2")
 
@@ -34,6 +33,7 @@ volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
     timeout=1800,
 )
 def render_manim_gpu(file_content):
+    import torch
     cold_start_time = time.time()
 
     output_path = "/root/output/gpu"
