@@ -19,7 +19,7 @@ image = (
         "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended"
     )
     .pip_install(
-        "manim==0.17.3", 
+        "manim==0.17.3",
         "numpy", "requests", "moviepy", "torch",
         "pycairo", "pyglet", "pydub", "moderngl", "moderngl-window",
         "screeninfo", "mapbox-earcut", "validators", "tqdm",
@@ -64,6 +64,9 @@ def render_manim_gpu(file_content):
         print("Warning: Virtual display may not be running correctly")
 
     os.environ["LD_LIBRARY_PATH"] = "/usr/lib/x86_64-linux-gnu:/usr/lib/i386-linux-gnu"
+
+    subprocess.run("which manim", shell=True)
+    subprocess.run("manim --version", shell=True)
 
     render_start_time = time.time()
     print(f"\nCold start duration: {render_start_time - cold_start_time:.2f} seconds")
