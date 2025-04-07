@@ -26,8 +26,8 @@ image = (
         "typing_extensions>=4.5.0"
     )
     .run_commands(
-        "pip install manim==0.17.3",  
-        "ln -s $(which manim) /usr/bin/manim || true"
+        "pip install manim==0.17.3",
+        "ln -sf $(which manim) /usr/local/bin/manim"
     )
 )
 
