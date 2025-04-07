@@ -25,6 +25,10 @@ image = (
         "screeninfo", "mapbox-earcut", "validators", "tqdm",
         "typing_extensions>=4.5.0"
     )
+    .run_commands(
+        "pip show manim || pip install manim==0.17.3",
+        "ln -s $(which manim) /usr/bin/manim || true"
+    )
 )
 
 volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
