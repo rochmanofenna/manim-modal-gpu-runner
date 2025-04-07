@@ -7,7 +7,7 @@ import subprocess
 app = modal.App("binary-search-animation")
 
 image = (
-    modal.Image.from_registry("python:3.11-slim-bullseye", add_python="3.11")
+    modal.Image.debian_slim()
     .apt_install(
         "ffmpeg", "build-essential", "pkg-config", "python3-dev",
         "libgl1-mesa-dev", "libegl1-mesa-dev", "libgles2-mesa-dev",
@@ -17,12 +17,9 @@ image = (
         "sox", "libsox-fmt-all",
         "texlive", "texlive-latex-extra", "texlive-fonts-extra",
         "texlive-latex-recommended", "texlive-science", "texlive-fonts-recommended",
-        "curl"
+        "curl", "python3-pip"
     )
-    .run_commands(
-        "apt-get update && apt-get install -y python3-pip",
-        "pip install --no-cache-dir manim==0.17.3"
-    )
+    .pip_install("manim==0.17.3")
 )
 
 volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
