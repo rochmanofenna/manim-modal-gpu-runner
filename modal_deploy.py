@@ -33,7 +33,7 @@ volume = modal.Volume.from_name("manim-outputs", create_if_missing=True)
 @app.function(
     image=image,
     gpu="A100",
-    volumes={"/root/output": volume},ﬁdude
+    volumes={"/root/output": volume},
     timeout=1800,
 )
 def render_manim_gpu(file_content):
