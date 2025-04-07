@@ -20,7 +20,7 @@ image = (
     .run_commands(
         "apt-get update && apt-get install -y git",
         "pip install --upgrade pip",
-        "pip install torch manim==0.14.0"
+        "pip install torch manim==0.19.0"
     )
 )
 
